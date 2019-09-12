@@ -1,0 +1,11 @@
+{
+    "map_name": "MultiStation",
+    "map_path": "map_files/MultiStation",
+    "map_file": "MultiStation.dmm",
+    "shuttles": {
+	    "cargo": "cargo_box",
+	    "ferry": "ferry_fancy",
+	    "whiteship": "whiteship_box",
+	    "emergency": "emergency_box"
+    }
+}
