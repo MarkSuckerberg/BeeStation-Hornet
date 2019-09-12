@@ -49,6 +49,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	var/cable_color = "red"
 	color = "#ff0000"
+	var/obj/machinery/power/breakerbox/breaker_box
 
 /obj/structure/cable/yellow
 	cable_color = "yellow"
@@ -145,8 +146,29 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(T.intact)
 		return
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
+		
+		
+///// Z-Level Stuff
+		if(src.d1 == 12 || src.d2 == 12)
+			user << "<span class='warning'>You must cut this cable from above.</span>"
+			return
+///// Z-Level Stuff
+
+		if(breaker_box)
+			to_chat(user, "<span class='warning'>This cable is connected to nearby breaker box. Use breaker box to interact with it.</span>")
+			return
+
 		if (shock(user, 50))
 			return
+
+		if(src.d1)	// 0-X cables are 1 unit, X-X cables are 2 units long
+			new/obj/item/stack/cable_coil(T, 2, color)
+		else
+			new/obj/item/stack/cable_coil(T, 1, color)
+
+		for(var/mob/O in viewers(src, null))
+			O.show_message("<span class='warning'>[user] cuts the cable.</span>", 1)
+
 		user.visible_message("[user] cuts the cable.", "<span class='notice'>You cut the cable.</span>")
 		stored.add_fingerprint(user)
 		investigate_log("was cut by [key_name(usr)] in [AREACOORD(src)]", INVESTIGATE_WIRES)

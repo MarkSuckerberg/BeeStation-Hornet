@@ -45,7 +45,7 @@ map runtimestation
 endmap
 
 map multiz_debug
-	disabled
+	default
 endmap
 
 map kilostation
