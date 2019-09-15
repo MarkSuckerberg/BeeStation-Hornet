@@ -2,5 +2,11 @@
     "map_name": "MultiStation",
     "map_path": "map_files/MultiStation",
     "map_file": "MultiStation.dmm",
-	"traits": [{"Up": 1}, {"Up": 1, "Down": -1}, {"Down": -1}]
+	"traits": [{"Up": 1}, {"Up": 1, "Down": -1}, {"Down": -1}],
+	"shuttles": {
+	    "emergency": "emergency_delta",
+	    "ferry": "ferry_fancy",
+	    "cargo": "cargo_delta",
+		"whiteship": "whiteship_delta"
+	}
 }
