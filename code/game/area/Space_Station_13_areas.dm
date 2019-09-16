@@ -279,6 +279,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Service Hallway"
 	icon_state = "hall_service"
 
+/area/hallway/secondary/stairwell
+	name = "Stairwell"
+	icon_state = "stairwell"
+
 //Command
 
 /area/bridge
