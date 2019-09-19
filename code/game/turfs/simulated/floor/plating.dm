@@ -49,13 +49,13 @@
 /turf/open/floor/plating/attackby(obj/item/C, mob/user, params)
 	if(..())
 		return
-	if(istype(C, /obj/item/stack/rods) && attachment_holes)
+	if(istype(C, /obj/item/stack/sheet/iron) && attachment_holes)
 		if(broken || burnt)
 			to_chat(user, "<span class='warning'>Repair the plating first!</span>")
 			return
-		var/obj/item/stack/rods/R = C
+		var/obj/item/stack/sheet/iron/R = C
 		if (R.get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need two rods to make a reinforced floor!</span>")
+			to_chat(user, "<span class='warning'>You need two plates to make a reinforced floor!</span>")
 			return
 		else
 			to_chat(user, "<span class='notice'>You begin reinforcing the floor...</span>")
@@ -84,6 +84,16 @@
 			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 		else
 			to_chat(user, "<span class='warning'>This section is too damaged to support a tile! Use a welder to fix the damage.</span>")
+
+			if(locate(/obj/structure/lattice/catwalk, src))
+				return
+			if (istype(C, /obj/item/stack/rods))
+				var/obj/item/stack/rods/R = C
+				if (R.use(2))
+					to_chat(user, "<span class='notice'>You lay down the catwalk.</span>")
+					playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+					new /obj/structure/lattice/catwalk(src)
+				return
 
 /turf/open/floor/plating/welder_act(mob/living/user, obj/item/I)
 	if((broken || burnt) && I.use_tool(src, user, 0, volume=80))

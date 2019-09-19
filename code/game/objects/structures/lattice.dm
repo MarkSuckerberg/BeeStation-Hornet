@@ -41,7 +41,10 @@
 		return
 	if(C.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, "<span class='notice'>Slicing [name] joints ...</span>")
-		deconstruct()
+		new /obj/item/stack/rods(src.loc)
+		new /obj/item/stack/rods(src.loc)
+		if(istype(src.loc, /turf/open/space) || istype(src.loc, /turf/open/openspace))
+			new /obj/structure/lattice/(src.loc)
 	else
 		var/turf/T = get_turf(src)
 		return T.attackby(C, user) //hand this off to the turf instead (for building plating, catwalks, etc)
@@ -98,6 +101,8 @@
 	icon = 'icons/obj/smooth_structures/catwalk.dmi'
 	icon_state = "catwalk"
 	number_of_rods = 2
+	layer = CATWALK_LAYER
+	plane = GAME_PLANE
 	smooth = SMOOTH_TRUE
 	canSmoothWith = null
 

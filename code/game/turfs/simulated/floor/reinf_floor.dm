@@ -5,7 +5,7 @@
 	icon_state = "engine"
 	thermal_conductivity = 0.025
 	heat_capacity = INFINITY
-	floor_tile = /obj/item/stack/rods
+	floor_tile = /obj/item/stack/sheet/iron
 	footstep = FOOTSTEP_PLATING
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -14,7 +14,7 @@
 
 /turf/open/floor/engine/examine(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>The reinforcement rods are <b>wrenched</b> firmly in place.</span>")
+	to_chat(user, "<span class='notice'>The reinforcement plates are <b>wrenched</b> firmly in place.</span>")
 
 /turf/open/floor/engine/airless
 	initial_gas_mix = AIRLESS_ATMOS

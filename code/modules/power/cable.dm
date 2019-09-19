@@ -87,9 +87,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	d1 = text2num( copytext( icon_state, 1, dash ) )
 	d2 = text2num( copytext( icon_state, dash+1 ) )
 
-	var/turf/T = get_turf(src)			// hide if turf is not intact
-	if(level==1)
-		hide(T.intact)
 	GLOB.cable_list += src //add it to the global cable list
 
 	if(d1)
