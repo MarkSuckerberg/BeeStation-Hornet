@@ -48,6 +48,12 @@ map multiz_debug
 	disabled
 endmap
 
+map ministation
+	default
+	votable
+	maxplayers 50
+endmap
+
 map kilostation
     minplayers 30
     maxplayers 80
