@@ -171,3 +171,15 @@
 	item_state = "spacepol"
 	item_color = "spacepol"
 	can_adjust = FALSE
+
+/*
+ *Brig Medic
+ */
+
+/obj/item/clothing/under/rank/security/medsec
+	name = "medic jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel, as well as a security rank stripe."
+	icon_state = "medsec"
+	item_state = "w_suit"
+	item_color = "medsecwhite"
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
