@@ -1,12 +1,42 @@
 //Defines for atom layers and planes
 //KEEP THESE IN A NICE ACSCENDING ORDER, PLEASE
+//Hate me or love me, de-planification is what needed to be done. -MarkSuckerberg
 
-#define CLICKCATCHER_PLANE -99
+#define CLICKCATCHER_PLANE -100
 
-#define PLANE_SPACE -95
-#define PLANE_SPACE_PARALLAX -90
+#define PLANE_SPACE -99
+	#define SPACE_LAYER 1
+#define PLANE_SPACE_PARALLAX -98
+	#define SPACE_PARALLAX_LAYER 1
 
-#define FLOOR_PLANE -2
+#define OPENSPACE_PLANE -97
+#define OVER_OPENSPACE_PLANE -1
+
+#define DEFAULT_PLANE 0
+	#define PLATING_LAYER 1
+	//Layers above plating
+	#define DECAL_PLATING_LAYER 2
+	#define DISPOSAL_PIPE_LAYER 3
+	#define LATTICE_LAYER 4
+	#define PIPE_LAYER 5
+	#define WIRE_LAYER 6
+	#define WIRE_TERMINAL_LAYER 7
+	#define ABOVE_WITE_LAYER 8
+	//Turf layers
+	#define BASE_TURF_LAYER 9
+	#define TURF_DETAIL_LAYER 10
+	#define TURF_SHADOW_LAYER 11
+	//Above Turf
+	#define DECAL_LAYER 12
+	#define RUNE_LAYER 13
+	#define ABOVE_TILE_LAYER 14
+	#define EXPOSED_PIPE_LAYER 15
+	#define EXPOSED_WIRE_LAYER 16
+	#define EXPOSED_WIRE_TERMINAL_LAYER 17
+	#define CATWALK_LAYER 18
+	#define BLOOD_LAYER 19
+
+
 #define GAME_PLANE -1
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
