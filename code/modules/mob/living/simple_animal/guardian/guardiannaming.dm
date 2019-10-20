@@ -159,3 +159,8 @@
 	suffixcolour = "Orchid"
 	parasiteicon = "techOrchid"
 	colour = "#F62CF5"
+
+/datum/guardianname/tech/queen
+	suffixcolour = "Queen"
+	parasiteicon = "KLR_queen"
+	colour = "#f0e0e6"
