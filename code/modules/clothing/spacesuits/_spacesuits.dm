@@ -21,6 +21,10 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	resistance_flags = NONE
 	dog_fashion = null
+	species_fit = list("Corvid")
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/vox/helmet.dmi'
+		)
 
 /obj/item/clothing/suit/space
 	name = "space suit"
@@ -43,3 +47,7 @@
 	strip_delay = 80
 	equip_delay_other = 80
 	resistance_flags = NONE
+	species_fit = list("Corvid")
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/corvid/suit.dmi'
+		)	

@@ -7,6 +7,10 @@
 	equip_delay_other = 40
 	var/mask_adjusted = 0
 	var/adjusted_flags = null
+	species_fit = list("Corvid")
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/corvid/masks.dmi'
+		)
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))

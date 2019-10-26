@@ -20,9 +20,8 @@
 	slot_flags = ITEM_SLOT_BACK	//ERROOOOO
 	resistance_flags = NONE
 	max_integrity = 300
-	species_fit = list("Vox Outcast", "Corvid")
+	species_fit = list("Corvid")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/back.dmi',
 		"Corvid" = 'icons/mob/species/corvid/back.dmi'
 		)
 

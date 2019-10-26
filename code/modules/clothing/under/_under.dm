@@ -17,6 +17,10 @@
 	var/mutantrace_variation = NO_MUTANTRACE_VARIATION //Are there special sprites for specific situations? Don't use this unless you need to.
 	var/freshly_laundered = FALSE
 	var/dodgy_colours = FALSE
+	species_fit = list("Corvid")
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/corvid/uniform.dmi'
+		)
 
 /obj/item/clothing/under/worn_overlays(isinhands = FALSE)
 	. = list()

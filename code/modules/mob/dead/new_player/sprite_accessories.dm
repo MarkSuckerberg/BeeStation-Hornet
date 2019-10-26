@@ -2111,8 +2111,8 @@
 	
 /datum/sprite_accessory/corvid_head_feathers/none
 	name = "None"
-
 	icon_state = "none"
+
 /datum/sprite_accessory/corvid_head_feathers/short
 	name = "Short"
 	icon_state = "short"

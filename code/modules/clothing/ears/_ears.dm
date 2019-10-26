@@ -6,6 +6,10 @@
 	throwforce = 0
 	slot_flags = ITEM_SLOT_EARS
 	resistance_flags = NONE
+	species_fit = list("Corvid")
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/corvid/ears.dmi'
+		)
 
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"

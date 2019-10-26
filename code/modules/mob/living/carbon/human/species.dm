@@ -609,6 +609,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if("corvid_eyes" in mutant_bodyparts)
 		if(!H.dna.features["corvid_eyes"] || (H.wear_mask && (H.wear_mask.flags_inv & HIDEEYES)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "corvid_eyes"
+
 	if("ears" in mutant_bodyparts)
 		if(!H.dna.features["ears"] || H.dna.features["ears"] == "None" || H.head && (H.head.flags_inv & HIDEHAIR) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "ears"
