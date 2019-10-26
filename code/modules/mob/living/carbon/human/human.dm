@@ -1117,6 +1117,9 @@
 /mob/living/carbon/human/species/moth
 	race = /datum/species/moth
 
+/mob/living/carbon/human/species/corvid
+	race = /datum/species/corvid
+
 /mob/living/carbon/human/species/mush
 	race = /datum/species/mush
 

@@ -126,6 +126,7 @@
 #define ROBOTIC_LIMBS	23 //limbs start out as robotic; but also use organic icons. If you want to use the default ones, you'll have to use on_species_gain
 #define NOMOUTH			24
 #define SMALLSPECIES    25 //Small by default.
+#define NOAUGMENTATION	26 //Cannot be augmented.
 
 #define ORGAN_SLOT_BRAIN "brain"
 #define ORGAN_SLOT_APPENDIX "appendix"

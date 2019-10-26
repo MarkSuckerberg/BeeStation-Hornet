@@ -142,6 +142,18 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	/// In tiles, how far this weapon can reach; 1 for adjacent, which is default
 	var/reach = 1
 
+	/* Species-specific sprites, concept stolen from Oracle, who in turn stole it from Paradise and /vg/.
+	ex:
+	sprite_sheets = list(
+		"Corvid" = 'icons/mob/species/corvid/head.dmi'
+		)
+	If index term exists and icon_override is not set, this sprite sheet will be used.
+	*/
+	var/list/sprite_sheets = null
+	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
+	var/sprite_sheets_obj = null //Used to override hardcoded clothing inventory object dmis in human clothing proc.
+	var/list/species_fit = null //This object has a different appearance when worn by these species
+
 	/// The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot. For default list, see /mob/proc/equip_to_appropriate_slot()
 	var/list/slot_equipment_priority = null
 

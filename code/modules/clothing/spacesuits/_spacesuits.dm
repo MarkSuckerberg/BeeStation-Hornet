@@ -23,7 +23,7 @@
 	dog_fashion = null
 	species_fit = list("Corvid")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/vox/helmet.dmi'
+		"Corvid" = 'icons/mob/species/corvid/helmet.dmi'
 		)
 
 /obj/item/clothing/suit/space
