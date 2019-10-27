@@ -14,6 +14,7 @@
 	burnmod = 1.5 // Fried chicken
 	coldmod = 0.8 // Warm feathers
 	damage_overlay_type = "corvid"
+	mutanteyes = /obj/item/organ/eyes/corvid
 
 /datum/species/corvid/on_species_gain(mob/living/carbon/C)
 	. = ..()

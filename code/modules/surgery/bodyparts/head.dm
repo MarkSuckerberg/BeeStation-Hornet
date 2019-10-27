@@ -235,22 +235,13 @@
 			. += lips_overlay
 
 		// eyes
-		if(HUMANEYES in target.dna.species.species_traits)
-			var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
-			. += eyes_overlay
-			if(eyes)
-				eyes_overlay.icon_state = eyes.eye_icon_state
+		var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
+		. += eyes_overlay
+		if(eyes)
+			eyes_overlay.icon_state = eyes.eye_icon_state
 
-				if(eyes.eye_color)
-					eyes_overlay.color = "#" + eyes.eye_color
-		else
-			var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
-			. += eyes_overlay
-			if(eyes)
-				eyes_overlay.icon_state = [dna.species.name]eyes.eye_icon_state
-
-				if(eyes.eye_color)
-					eyes_overlay.color = "#" + eyes.eye_color
+			if(eyes.eye_color)
+				eyes_overlay.color = "#" + eyes.eye_color
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/animal_parts.dmi'

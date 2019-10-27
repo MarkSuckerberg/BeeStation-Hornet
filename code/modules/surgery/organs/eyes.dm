@@ -366,6 +366,10 @@
 	desc = "These eyes seem to have increased sensitivity to bright light, with no improvement to low light vision."
 	flash_protect = -1
 
+/obj/item/organ/eyes/corvid
+	name = "corvid eyes"
+	eye_icon_state = "corvideyes"
+
 /obj/item/organ/eyes/snail
 	name = "snail eyes"
 	desc = "These eyes seem to have a large range, but might be cumbersome with glasses."
