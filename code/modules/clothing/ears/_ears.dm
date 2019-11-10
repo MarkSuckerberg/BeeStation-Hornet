@@ -6,9 +6,9 @@
 	throwforce = 0
 	slot_flags = ITEM_SLOT_EARS
 	resistance_flags = NONE
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/ears.dmi'
+		"teshari" = 'icons/mob/species/teshari/ears.dmi'
 		)
 
 /obj/item/clothing/ears/earmuffs

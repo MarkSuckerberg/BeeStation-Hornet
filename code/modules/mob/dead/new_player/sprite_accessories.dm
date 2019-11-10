@@ -2092,43 +2092,43 @@
 	name = "Zeng-Hu Pharmaceuticals"
 	limbs_id = "zhpipc"
 
-/datum/sprite_accessory/corvid_body_feathers
-	icon = 'icons/mob/corvid_accessories.dmi'
+/datum/sprite_accessory/teshari_body_feathers
+	icon = 'icons/mob/teshari_accessories.dmi'
 	color_src = HAIR
 	
-/datum/sprite_accessory/corvid_body_feathers/none
+/datum/sprite_accessory/teshari_body_feathers/none
 	name = "None"
 	icon_state = "none"
 	color_src = HAIR
 
-/datum/sprite_accessory/corvid_body_feathers/extra
+/datum/sprite_accessory/teshari_body_feathers/extra
 	name = "Extra feathers"
 	icon_state = "extra"
 
-/datum/sprite_accessory/corvid_head_feathers
-	icon = 'icons/mob/corvid_accessories.dmi'
+/datum/sprite_accessory/teshari_head_feathers
+	icon = 'icons/mob/teshari_accessories.dmi'
 	color_src = HAIR
 	
-/datum/sprite_accessory/corvid_head_feathers/none
+/datum/sprite_accessory/teshari_head_feathers/none
 	name = "None"
 	icon_state = "none"
 
-/datum/sprite_accessory/corvid_head_feathers/short
+/datum/sprite_accessory/teshari_head_feathers/short
 	name = "Short"
 	icon_state = "short"
 
-/datum/sprite_accessory/corvid_head_feathers/bushy
+/datum/sprite_accessory/teshari_head_feathers/bushy
 	name = "Bushy"
 	icon_state = "bushy"
 
-/datum/sprite_accessory/corvid_head_feathers/spiky
+/datum/sprite_accessory/teshari_head_feathers/spiky
 	name = "Spiky"
 	icon_state = "spiky"
 
-/datum/sprite_accessory/corvid_eyes
-	icon = 'icons/mob/corvid_accessories.dmi'
+/datum/sprite_accessory/teshari_eyes
+	icon = 'icons/mob/teshari_accessories.dmi'
 	color_src = EYECOLOR
 
-/datum/sprite_accessory/corvid_eyes/default
+/datum/sprite_accessory/teshari_eyes/default
 	name = "default"
 	icon_state = "default"

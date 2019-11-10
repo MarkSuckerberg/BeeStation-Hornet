@@ -145,7 +145,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	/* Species-specific sprites, concept stolen from Oracle, who in turn stole it from Paradise and /vg/.
 	ex:
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/head.dmi'
+		"teshari" = 'icons/mob/species/teshari/head.dmi'
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/

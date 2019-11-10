@@ -7,9 +7,9 @@
 	equip_delay_other = 40
 	var/mask_adjusted = 0
 	var/adjusted_flags = null
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/masks.dmi'
+		"teshari" = 'icons/mob/species/teshari/masks.dmi'
 		)
 
 /obj/item/clothing/mask/attack_self(mob/user)

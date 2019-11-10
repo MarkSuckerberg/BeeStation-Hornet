@@ -10,9 +10,9 @@
 	var/transfer_prints = FALSE
 	strip_delay = 20
 	equip_delay_other = 40
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/gloves.dmi'
+		"teshari" = 'icons/mob/species/teshari/gloves.dmi'
 		)
 
 /obj/item/clothing/gloves/ComponentInitialize()

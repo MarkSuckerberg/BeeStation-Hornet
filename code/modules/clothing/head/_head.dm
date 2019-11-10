@@ -8,9 +8,9 @@
 	var/blockTracking = 0 //For AI tracking
 	var/can_toggle = null
 	dynamic_hair_suffix = "+generic"
-	species_fit = list("Vox Outcast", "Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/head.dmi'
+		"teshari" = 'icons/mob/species/teshari/head.dmi'
 		)
 
 /obj/item/clothing/head/Initialize()

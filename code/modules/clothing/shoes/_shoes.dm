@@ -7,9 +7,9 @@
 
 	body_parts_covered = FEET
 	slot_flags = ITEM_SLOT_FEET
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/shoes.dmi'
+		"teshari" = 'icons/mob/species/teshari/shoes.dmi'
 		)
 
 	permeability_coefficient = 0.5

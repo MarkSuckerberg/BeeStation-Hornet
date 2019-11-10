@@ -16,9 +16,9 @@
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/id.dmi'
+		"teshari" = 'icons/mob/species/teshari/id.dmi'
 		)
 
 	var/list/files = list()

@@ -9,9 +9,9 @@
 	var/togglename = null
 	var/suittoggled = FALSE
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/exo
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/suit.dmi'
+		"teshari" = 'icons/mob/species/teshari/suit.dmi'
 		)
 
 

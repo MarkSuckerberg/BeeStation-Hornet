@@ -20,9 +20,9 @@
 	slot_flags = ITEM_SLOT_BACK	//ERROOOOO
 	resistance_flags = NONE
 	max_integrity = 300
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/back.dmi'
+		"teshari" = 'icons/mob/species/teshari/back.dmi'
 		)
 
 /obj/item/storage/backpack/ComponentInitialize()

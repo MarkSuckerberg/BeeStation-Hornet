@@ -34,9 +34,9 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_antennas, GLOB.ipc_antennas_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_chassis, GLOB.ipc_chassis_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/corvid_head_feathers, GLOB.corvid_head_feathers_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/corvid_body_feathers, GLOB.corvid_body_feathers_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/corvid_eyes, GLOB.corvid_eyes_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/teshari_head_feathers, GLOB.teshari_head_feathers_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/teshari_body_feathers, GLOB.teshari_body_feathers_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/teshari_eyes, GLOB.teshari_eyes_list)
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))

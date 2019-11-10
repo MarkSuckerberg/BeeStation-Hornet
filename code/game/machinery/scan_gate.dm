@@ -211,7 +211,7 @@
 			var/new_species = input("Set target species","Scan Mode") as null|anything in list("Human",
 																								"Lizardperson",
 																								"Flyperson",
-																								"Corvid",
+																								"teshari",
 																								"Plasmaman",
 																								"Mothmen",
 																								"Jellyperson",
@@ -226,8 +226,8 @@
 						detect_species = /datum/species/lizard
 					if("Flyperson")
 						detect_species = /datum/species/fly
-					if("Corvid")
-						detect_species = /datum/species/corvid
+					if("teshari")
+						detect_species = /datum/species/teshari
 					if("Plasmaman")
 						detect_species = /datum/species/plasmaman
 					if("Mothmen")

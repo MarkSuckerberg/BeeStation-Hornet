@@ -21,9 +21,9 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	resistance_flags = NONE
 	dog_fashion = null
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/helmet.dmi'
+		"teshari" = 'icons/mob/species/teshari/helmet.dmi'
 		)
 
 /obj/item/clothing/suit/space
@@ -47,7 +47,7 @@
 	strip_delay = 80
 	equip_delay_other = 80
 	resistance_flags = NONE
-	species_fit = list("Corvid")
+	species_fit = list("teshari")
 	sprite_sheets = list(
-		"Corvid" = 'icons/mob/species/corvid/suit.dmi'
+		"teshari" = 'icons/mob/species/teshari/suit.dmi'
 		)	
