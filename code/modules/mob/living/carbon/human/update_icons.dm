@@ -248,12 +248,11 @@ There are several things that need to be remembered:
 		else
 			standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/eyes.dmi')
 
-		var/mutable_appearance/glasses_overlay = standing
 		if(glasses_overlay)
 			if(OFFSET_GLASSES in dna.species.offset_features)
 				glasses_overlay.pixel_x += dna.species.offset_features[OFFSET_GLASSES][1]
 				glasses_overlay.pixel_y += dna.species.offset_features[OFFSET_GLASSES][2]
-			overlays_standing[GLASSES_LAYER] = glasses_overlay
+			overlays_standing[GLASSES_LAYER] = standing
 	apply_overlay(GLASSES_LAYER)
 
 
@@ -282,11 +281,10 @@ There are several things that need to be remembered:
 		else
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
 
-		var/mutable_appearance/ears_overlay = standing
 		if(OFFSET_EARS in dna.species.offset_features)
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
-		overlays_standing[EARS_LAYER] = ears_overlay
+		overlays_standing[EARS_LAYER] = standing
 	apply_overlay(EARS_LAYER)
 
 
@@ -314,11 +312,10 @@ There are several things that need to be remembered:
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = shoes.sprite_sheets[dna.species.name])
 		else
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/feet.dmi')
-		var/mutable_appearance/shoes_overlay = standing
 		if(OFFSET_SHOES in dna.species.offset_features)
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
 			shoes_overlay.pixel_y += dna.species.offset_features[OFFSET_SHOES][2]
-		overlays_standing[SHOES_LAYER] = shoes_overlay
+		overlays_standing[SHOES_LAYER] = standing
 
 	apply_overlay(SHOES_LAYER)
 
