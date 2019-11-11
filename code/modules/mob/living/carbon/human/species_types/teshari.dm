@@ -27,3 +27,5 @@
 	C.pass_flags &= ~PASSTABLE
 	C.can_be_held = FALSE
 	C.mob_size = initial(C.mob_size)
+
+/datum/species/teshari/pickup

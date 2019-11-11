@@ -248,6 +248,7 @@ There are several things that need to be remembered:
 		else
 			standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/eyes.dmi')
 
+		var/mutable_appearance/glasses_overlay = standing
 		if(glasses_overlay)
 			if(OFFSET_GLASSES in dna.species.offset_features)
 				glasses_overlay.pixel_x += dna.species.offset_features[OFFSET_GLASSES][1]
@@ -281,6 +282,7 @@ There are several things that need to be remembered:
 		else
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
 
+		var/mutable_appearance/ears_overlay = standing
 		if(OFFSET_EARS in dna.species.offset_features)
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
@@ -312,6 +314,7 @@ There are several things that need to be remembered:
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = shoes.sprite_sheets[dna.species.name])
 		else
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/feet.dmi')
+		var/mutable_appearance/shoes_overlay = standing
 		if(OFFSET_SHOES in dna.species.offset_features)
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
 			shoes_overlay.pixel_y += dna.species.offset_features[OFFSET_SHOES][2]
@@ -348,12 +351,20 @@ There are several things that need to be remembered:
 	..()
 	update_mutant_bodyparts()
 	var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
+	var/image/standing
 	if(head_overlay)
+		if(head.icon_override)
+			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = head.icon_override)
+		else if(head.sprite_sheets && head.sprite_sheets[dna.species.name])
+			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = head.sprite_sheets[dna.species.name])
+		else
+			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/head.dmi')
+			
 		remove_overlay(HEAD_LAYER)
 		if(OFFSET_HEAD in dna.species.offset_features)
 			head_overlay.pixel_x += dna.species.offset_features[OFFSET_HEAD][1]
 			head_overlay.pixel_y += dna.species.offset_features[OFFSET_HEAD][2]
-			overlays_standing[HEAD_LAYER] = head_overlay
+			overlays_standing[HEAD_LAYER] = standing
 	apply_overlay(HEAD_LAYER)
 
 /mob/living/carbon/human/update_inv_belt()
@@ -468,10 +479,17 @@ There are several things that need to be remembered:
 	var/mutable_appearance/back_overlay = overlays_standing[BACK_LAYER]
 	if(back_overlay)
 		remove_overlay(BACK_LAYER)
+		var/image/standing
+		if(back.icon_override)
+			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = back.icon_override)
+		else if(back.sprite_sheets && back.sprite_sheets[dna.species.name])
+			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = back.sprite_sheets[dna.species.name])
+		else
+			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = 'icons/mob/back.dmi')
 		if(OFFSET_BACK in dna.species.offset_features)
 			back_overlay.pixel_x += dna.species.offset_features[OFFSET_BACK][1]
 			back_overlay.pixel_y += dna.species.offset_features[OFFSET_BACK][2]
-			overlays_standing[BACK_LAYER] = back_overlay
+			overlays_standing[BACK_LAYER] = standing
 		apply_overlay(BACK_LAYER)
 
 /mob/living/carbon/human/update_inv_legcuffed()
