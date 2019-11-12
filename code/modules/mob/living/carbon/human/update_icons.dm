@@ -139,7 +139,7 @@ There are several things that need to be remembered:
 		if(!uniform_overlay)
 			if(U.icon_override)
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.icon_override)
-			if(U.sprite_sheets && U.sprite_sheets[dna.species.name])
+			else if(U.sprite_sheets && U.sprite_sheets[dna.species.name])
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.sprite_sheets[dna.species.name])
 			else
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/uniform.dmi')
@@ -213,13 +213,12 @@ There are several things that need to be remembered:
 			standing = gloves.build_worn_icon(state = "[t_state]", default_layer = GLOVES_LAYER, default_icon_file = gloves.sprite_sheets[dna.species.name])
 		else
 			standing = gloves.build_worn_icon(state = "[t_state]", default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/hands.dmi')
-
 		overlays_standing[GLOVES_LAYER] = standing
 		gloves_overlay = overlays_standing[GLOVES_LAYER]
 		if(OFFSET_GLOVES in dna.species.offset_features)
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
-	overlays_standing[GLOVES_LAYER] = gloves_overlay
+			overlays_standing[GLOVES_LAYER] = gloves_overlay
 	apply_overlay(GLOVES_LAYER)
 
 
@@ -247,13 +246,12 @@ There are several things that need to be remembered:
 			standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = glasses.sprite_sheets[dna.species.name])
 		else
 			standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/eyes.dmi')
-
-		var/mutable_appearance/glasses_overlay = standing
-		if(glasses_overlay)
-			if(OFFSET_GLASSES in dna.species.offset_features)
-				glasses_overlay.pixel_x += dna.species.offset_features[OFFSET_GLASSES][1]
-				glasses_overlay.pixel_y += dna.species.offset_features[OFFSET_GLASSES][2]
-			overlays_standing[GLASSES_LAYER] = standing
+		overlays_standing[GLASSES_LAYER] = standing
+		var/mutable_appearance/glasses_overlay = overlays_standing[GLASSES_LAYER]
+		if(OFFSET_GLASSES in dna.species.offset_features)
+			glasses_overlay.pixel_x += dna.species.offset_features[OFFSET_GLASSES][1]
+			glasses_overlay.pixel_y += dna.species.offset_features[OFFSET_GLASSES][2]
+			overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
 
@@ -281,12 +279,12 @@ There are several things that need to be remembered:
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = ears.sprite_sheets[dna.species.name])
 		else
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
-
-		var/mutable_appearance/ears_overlay = standing
+		overlays_standing[EARS_LAYER] = standing
+		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
 		if(OFFSET_EARS in dna.species.offset_features)
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
-		overlays_standing[EARS_LAYER] = standing
+			overlays_standing[EARS_LAYER] = ears_overlay
 	apply_overlay(EARS_LAYER)
 
 
@@ -314,12 +312,12 @@ There are several things that need to be remembered:
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = shoes.sprite_sheets[dna.species.name])
 		else
 			standing = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/feet.dmi')
-		var/mutable_appearance/shoes_overlay = standing
+		overlays_standing[SHOES_LAYER] = standing
+		var/mutable_appearance/shoes_overlay = overlays_standing[SHOES_LAYER]
 		if(OFFSET_SHOES in dna.species.offset_features)
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
 			shoes_overlay.pixel_y += dna.species.offset_features[OFFSET_SHOES][2]
-		overlays_standing[SHOES_LAYER] = standing
-
+			overlays_standing[SHOES_LAYER] = shoes_overlay
 	apply_overlay(SHOES_LAYER)
 
 
@@ -343,28 +341,28 @@ There are several things that need to be remembered:
 		if(OFFSET_S_STORE in dna.species.offset_features)
 			s_store_overlay.pixel_x += dna.species.offset_features[OFFSET_S_STORE][1]
 			s_store_overlay.pixel_y += dna.species.offset_features[OFFSET_S_STORE][2]
-		overlays_standing[SUIT_STORE_LAYER] = s_store_overlay
+			overlays_standing[SUIT_STORE_LAYER] = s_store_overlay
 	apply_overlay(SUIT_STORE_LAYER)
 
 
 /mob/living/carbon/human/update_inv_head()
 	..()
 	update_mutant_bodyparts()
-	var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
-	var/image/standing
-	if(head_overlay)
+	if(head)
+		var/image/standing
 		if(head.icon_override)
 			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = head.icon_override)
 		else if(head.sprite_sheets && head.sprite_sheets[dna.species.name])
 			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = head.sprite_sheets[dna.species.name])
 		else
 			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/head.dmi')
-			
 		remove_overlay(HEAD_LAYER)
+		overlays_standing[HEAD_LAYER] = standing	
+		var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
 		if(OFFSET_HEAD in dna.species.offset_features)
 			head_overlay.pixel_x += dna.species.offset_features[OFFSET_HEAD][1]
 			head_overlay.pixel_y += dna.species.offset_features[OFFSET_HEAD][2]
-			overlays_standing[HEAD_LAYER] = standing
+			overlays_standing[HEAD_LAYER] = head_overlay
 	apply_overlay(HEAD_LAYER)
 
 /mob/living/carbon/human/update_inv_belt()
@@ -379,12 +377,11 @@ There are several things that need to be remembered:
 		if(client && hud_used && hud_used.hud_shown)
 			client.screen += belt
 		update_observer_view(belt)
-		var/image/standing
 
 		var/t_state = belt.item_state
 		if(!t_state)
 			t_state = belt.icon_state
-		
+		var/image/standing
 
 		if(belt.icon_override)
 			t_state = "[t_state]_be"
@@ -394,13 +391,12 @@ There are several things that need to be remembered:
 		else
 			standing = belt.build_worn_icon(state = "[t_state]", default_layer = BELT_LAYER, default_icon_file = 'icons/mob/belt.dmi')
 
-		overlays_standing[BELT_LAYER] = belt.build_worn_icon(state = t_state, default_layer = BELT_LAYER, default_icon_file = 'icons/mob/belt.dmi')
-		var/mutable_appearance/belt_overlay = standing
+		overlays_standing[BELT_LAYER] = standing
+		var/mutable_appearance/belt_overlay = overlays_standing[BELT_LAYER]
 		if(OFFSET_BELT in dna.species.offset_features)
 			belt_overlay.pixel_x += dna.species.offset_features[OFFSET_BELT][1]
 			belt_overlay.pixel_y += dna.species.offset_features[OFFSET_BELT][2]
-		overlays_standing[BELT_LAYER] = belt_overlay
-
+			overlays_standing[BELT_LAYER] = belt_overlay
 	apply_overlay(BELT_LAYER)
 
 
@@ -427,12 +423,12 @@ There are several things that need to be remembered:
 		else
 			standing = wear_suit.build_worn_icon(state = wear_suit.icon_state, default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/suit.dmi')
 
-		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(state = wear_suit.icon_state, default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/suit.dmi')
-		var/mutable_appearance/suit_overlay = standing
+		overlays_standing[SUIT_LAYER] = standing
+		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
 		if(OFFSET_SUIT in dna.species.offset_features)
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
-		overlays_standing[SUIT_LAYER] = suit_overlay
+			overlays_standing[SUIT_LAYER] = suit_overlay
 	update_hair()
 	update_mutant_bodyparts()
 
@@ -476,8 +472,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_inv_back()
 	..()
-	var/mutable_appearance/back_overlay = overlays_standing[BACK_LAYER]
-	if(back_overlay)
+	if(back)
 		remove_overlay(BACK_LAYER)
 		var/image/standing
 		if(back.icon_override)
@@ -486,10 +481,12 @@ There are several things that need to be remembered:
 			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = back.sprite_sheets[dna.species.name])
 		else
 			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = 'icons/mob/back.dmi')
+		var/mutable_appearance/back_overlay = overlays_standing[BACK_LAYER]
+		overlays_standing[BACK_LAYER] = standing
 		if(OFFSET_BACK in dna.species.offset_features)
 			back_overlay.pixel_x += dna.species.offset_features[OFFSET_BACK][1]
 			back_overlay.pixel_y += dna.species.offset_features[OFFSET_BACK][2]
-			overlays_standing[BACK_LAYER] = standing
+			overlays_standing[BACK_LAYER] = back_overlay
 		apply_overlay(BACK_LAYER)
 
 /mob/living/carbon/human/update_inv_legcuffed()
