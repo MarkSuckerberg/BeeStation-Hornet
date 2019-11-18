@@ -14,7 +14,7 @@ hr
 	height: 1px;
 }
 
-a, button, a:link, a:visited, a:active, .linkOn, .linkOff
+a, a:link, a:visited, a:active, .linkOn, .linkOff
 {
 	color: #ffffff;
 	text-decoration: none;
@@ -302,6 +302,10 @@ div.notice
 {
 	width: 100%;
 	clear: both;
+}
+.pda_icon
+{
+	vertical-align: -3px;
 }
 
 
