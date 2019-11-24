@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(chat)
 			return
 
 
-/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE)
+/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, confidential = FALSE)
 	if(!target || !message)
 		return
 
@@ -37,6 +37,8 @@ SUBSYSTEM_DEF(chat)
 		message = replacetext(message, "\t", "[GLOB.TAB][GLOB.TAB]")
 	message += "<br>"
 
+	if(!confidential)
+		SSdemo.write_chat(target, message)
 
 	//url_encode it TWICE, this way any UTF-8 characters are able to be decoded by the Javascript.
 	//Do the double-encoding here to save nanoseconds
@@ -52,6 +54,9 @@ SUBSYSTEM_DEF(chat)
 			if(!C.chatOutput.loaded) //Client still loading, put their messages in a queue
 				C.chatOutput.messageQueue += message
 				continue
+
+			message = to_utf8(message, I) // yogs - LibVG
+			payload[C] += url_encode(url_encode(message))
 
 			payload[C] += twiceEncoded
 
