@@ -269,7 +269,7 @@ There are several things that need to be remembered:
 		ears.screen_loc = ui_ears	//move the item to the appropriate screen loc
 		if(client && hud_used && hud_used.hud_shown)
 			if(hud_used.inventory_shown)			//if the inventory is open
-				client.screen += ears					//add it to the client's screen
+				client.screen += ears				//add it to the client's screen
 		update_observer_view(ears,1)
 		var/image/standing
 
@@ -279,6 +279,7 @@ There are several things that need to be remembered:
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = ears.sprite_sheets[dna.species.name])
 		else
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
+		
 		overlays_standing[EARS_LAYER] = standing
 		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
 		if(OFFSET_EARS in dna.species.offset_features)
@@ -481,8 +482,8 @@ There are several things that need to be remembered:
 			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = back.sprite_sheets[dna.species.name])
 		else
 			standing = back.build_worn_icon(state = back.icon_state, default_layer = BACK_LAYER, default_icon_file = 'icons/mob/back.dmi')
-		var/mutable_appearance/back_overlay = overlays_standing[BACK_LAYER]
 		overlays_standing[BACK_LAYER] = standing
+		var/mutable_appearance/back_overlay = overlays_standing[BACK_LAYER]
 		if(OFFSET_BACK in dna.species.offset_features)
 			back_overlay.pixel_x += dna.species.offset_features[OFFSET_BACK][1]
 			back_overlay.pixel_y += dna.species.offset_features[OFFSET_BACK][2]

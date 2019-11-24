@@ -10,6 +10,7 @@
 	attack_sound = 'sound/weapons/slash.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
 	skinned_type = null
+	speedmod = -1.5 // HE SPEEEEEDIN
 	brutemod = 3 // Fragile bird bones
 	burnmod = 1.5 // Fried chicken
 	coldmod = 0.8 // Warm feathers
