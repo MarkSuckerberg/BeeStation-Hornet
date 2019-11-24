@@ -55,9 +55,6 @@ SUBSYSTEM_DEF(chat)
 				C.chatOutput.messageQueue += message
 				continue
 
-			message = to_utf8(message, I) // yogs - LibVG
-			payload[C] += url_encode(url_encode(message))
-
 			payload[C] += twiceEncoded
 
 	else
