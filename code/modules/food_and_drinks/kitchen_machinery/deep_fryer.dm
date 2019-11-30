@@ -96,6 +96,27 @@ God bless America.
 		return
 	else if(default_deconstruction_screwdriver(user, "fryer_off", "fryer_off" ,I))	//where's the open maint panel icon?!
 		return
+	if(istype(I, /obj/item/clothing/head/mob_holder))
+		var/obj/item/clothing/head/mob_holder/H = I //The thing holding the fry-ee
+		var/mob/living/L = H.held_mob //The fry-ee
+		if(L.stat != DEAD)
+			if(iscarbon(L))
+				var/mob/living/carbon/C = H.held_mob
+				user.visible_message("<span class = 'danger'>[user] dunks [C] in [src]!</span>")
+				reagents.reaction(C, TOUCH)
+				C.apply_damage(min(40, reagents.total_volume), BURN, BODY_ZONE_HEAD)
+				reagents.remove_any((reagents.total_volume/2))
+			else if(!iscarbon(L))
+				to_chat(user, "<span class = 'danger'>[user] dunks [L] in [src]!</span>")
+				L.apply_damage(min(30, reagents.total_volume), BURN)
+			else
+				return ..()
+		else
+			if(!frying && user.transferItemToLoc(L, src))
+				to_chat(user, "<span class='warning'>You put [L]'s corpse into [src]!</span>")
+				frying = new/obj/item/reagent_containers/food/snacks/deepfryholder(src, L)
+				icon_state = "fryer_on"
+				fry_loop.start()
 	else
 		if(is_type_in_typecache(I, deepfry_blacklisted_items) || HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & (ABSTRACT | DROPDEL)))
 			return ..()
