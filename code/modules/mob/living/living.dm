@@ -613,7 +613,7 @@
 	return
 
 /mob/living/Move(atom/newloc, direct)
-	if(lying) 
+	if(lying)
 		if(direct & EAST)
 			lying = 90
 		if(direct & WEST)
@@ -1276,24 +1276,6 @@
 	if(can_be_held)
 		mob_try_pickup(over)
 
-/mob/living/proc/mob_pickup(mob/living/L)
-	return
-
-/mob/living/proc/mob_try_pickup(mob/living/user)
-	if(!ishuman(user))
-		return
-	if(user.get_active_held_item())
-		to_chat(user, "<span class='warning'>Your hands are full!</span>")
-		return FALSE
-	if(buckled)
-		to_chat(user, "<span class='warning'>[src] is buckled to something!</span>")
-		return FALSE
-	user.visible_message("<span class='notice'>[user] starts trying to scoop up [src]!</span>")
-	if(!do_after(user, 20, target = src))
-		return FALSE
-	mob_pickup(user)
-	return TRUE
-
 /mob/living/proc/get_static_viruses() //used when creating blood and other infective objects
 	if(!LAZYLEN(diseases))
 		return
@@ -1354,3 +1336,8 @@
 			update_transform()
 		if("lighting_alpha")
 			sync_lighting_plane_alpha()
+
+/mob/living/proc/generate_mob_holder()
+	..()
+	var/obj/item/clothing/head/mob_holder/holder = new(get_turf(src), src, (istext(can_be_held) ? can_be_held : ""), 'icons/mob/animals_held.dmi', 'icons/mob/animals_held_lh.dmi', 'icons/mob/animals_held_rh.dmi')
+	return holder
