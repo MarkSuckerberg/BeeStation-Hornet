@@ -11,8 +11,7 @@
 	symptom_delay_max = 30
 	var/honey = FALSE
 	var/infected_bees = FALSE
-	threshold_desc = "<b>Resistance 14:</b> Host synthesizes honey instead of toxins, bees now sting with honey instead of toxin.<br>\
-					  <b>Transmission 10:</b> Bees now contain a small amount of infected blood"				
+	threshold_desc = "<b>Resistance 14:</b> Host synthesizes honey instead of toxins, bees now sting with honey instead of toxin."
 
 /datum/symptom/beesease/Start(datum/disease/advance/A)
 	if(!..())
@@ -38,7 +37,7 @@
 					to_chat(M, "<span class='notice'>You taste even more honey.</span>")
 					M.reagents.add_reagent(/datum/reagent/consumable/honey, 2)
 				else if(prob(20))
-					to_chat(M, "<span class='danger'>Your stomach stings painfully.</span>")				
+					to_chat(M, "<span class='danger'>Your stomach stings painfully.</span>")
 					M.adjustToxLoss(2)
 					M.updatehealth()
 		if(4, 5)
@@ -51,7 +50,7 @@
 				M.visible_message("<span class='danger'>[M] coughs up a swarm of bees!</span>", \
 								  "<span class='userdanger'>You cough up a swarm of bees!</span>")
 				if(honey)
-					var/mob/living/simple_animal/hostile/poison/bees/B = new(M.loc)
+					var/mob/living/simple_animal/hostile/poison/bees/toxin/B = new(M.loc)
 					B.assign_reagent(/datum/reagent/consumable/honey)
 				else
-					new /mob/living/simple_animal/hostile/poison/bees/toxin(M.loc)
+					new /mob/living/simple_animal/hostile/poison/bees(M.loc)
