@@ -5,6 +5,10 @@
 	slot_flags = ITEM_SLOT_NECK
 	strip_delay = 40
 	equip_delay_other = 40
+	species_fit = list("teshari")
+	sprite_sheets = list(
+		"teshari" = 'icons/mob/species/teshari/eyes.dmi'
+		)
 
 /obj/item/clothing/neck/worn_overlays(isinhands = FALSE)
 	. = list()

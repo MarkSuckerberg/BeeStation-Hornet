@@ -170,13 +170,13 @@ There are several things that need to be remembered:
 		var/image/standing
 
 		if(wear_id.icon_override)
-			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = wear_id.icon_override)
+			standing = wear_id.build_worn_icon(state = wear_id.icon_state, default_layer = ID_LAYER, default_icon_file = wear_id.icon_override)
 		else if(wear_id.sprite_sheets && wear_id.sprite_sheets[dna.species.name])
-			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = wear_id.sprite_sheets[dna.species.name])
+			standing = wear_id.build_worn_icon(state = wear_id.icon_state, default_layer = ID_LAYER, default_icon_file = wear_id.sprite_sheets[dna.species.name])
 		else
-			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = 'icons/mob/mob.dmi')
+			standing = wear_id.build_worn_icon(state = wear_id.icon_state, default_layer = ID_LAYER, default_icon_file = 'icons/mob/mob.dmi')
 		overlays_standing[ID_LAYER] = standing
-		wear_id_overlay = overlays_standing[ID_LAYER]
+		id_overlay = overlays_standing[ID_LAYER]
 		if(OFFSET_ID in dna.species.offset_features)
 			id_overlay.pixel_x += dna.species.offset_features[OFFSET_ID][1]
 			id_overlay.pixel_y += dna.species.offset_features[OFFSET_ID][2]
@@ -470,15 +470,6 @@ There are several things that need to be remembered:
 	var/mutable_appearance/mask_overlay = overlays_standing[FACEMASK_LAYER]
 	if(mask_overlay)
 		remove_overlay(FACEMASK_LAYER)
-		var/image/standing
-		if(wear_neck.icon_override)
-			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = wear_neck.icon_override)
-		else if(wear_neck.sprite_sheets && wear_neck.sprite_sheets[dna.species.name])
-			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = wear_neck.sprite_sheets[dna.species.name])
-		else
-			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
-		overlays_standing[FACEMASK_LAYER] = standing
-		var/mutable_appearance/wear_neck_overlay = overlays_standing[FACEMASK_LAYER]
 		if(OFFSET_FACEMASK in dna.species.offset_features)
 			mask_overlay.pixel_x += dna.species.offset_features[OFFSET_FACEMASK][1]
 			mask_overlay.pixel_y += dna.species.offset_features[OFFSET_FACEMASK][2]

@@ -134,7 +134,20 @@
 
 	if(wear_neck)
 		if(!(SLOT_NECK in check_obscured_slots()))
-			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
+			remove_overlay(NECK_LAYER)
+			var/image/standing
+			if(wear_neck.icon_override)
+				standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = wear_neck.icon_override)
+			else if(wear_neck.sprite_sheets && wear_neck.sprite_sheets[dna.species.name])
+				standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = wear_neck.sprite_sheets[dna.species.name])
+			else
+				standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
+			overlays_standing[NECK_LAYER] = standing
+			var/mutable_appearance/wear_neck_overlay = overlays_standing[NECK_LAYER]
+			if(OFFSET_NECK in dna.species.offset_features)
+				wear_neck_overlay.pixel_x += dna.species.offset_features[OFFSET_NECK][1]
+				wear_neck_overlay.pixel_y += dna.species.offset_features[OFFSET_NECK][2]
+				overlays_standing[NECK_LAYER] = wear_neck_overlay
 		update_hud_neck(wear_neck)
 
 	apply_overlay(NECK_LAYER)
