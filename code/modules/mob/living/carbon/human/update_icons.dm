@@ -167,14 +167,20 @@ There are several things that need to be remembered:
 		if(client && hud_used && hud_used.hud_shown)
 			client.screen += wear_id
 		update_observer_view(wear_id)
+		var/image/standing
 
-		//TODO: add an icon file for ID slot stuff, so it's less snowflakey
-		id_overlay = wear_id.build_worn_icon(state = wear_id.item_state, default_layer = ID_LAYER, default_icon_file = 'icons/mob/mob.dmi')
+		if(wear_id.icon_override)
+			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = wear_id.icon_override)
+		else if(wear_id.sprite_sheets && wear_id.sprite_sheets[dna.species.name])
+			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = wear_id.sprite_sheets[dna.species.name])
+		else
+			standing = wear_id.build_worn_icon(state = "[t_state]", default_layer = ID_LAYER, default_icon_file = 'icons/mob/mob.dmi')
+		overlays_standing[ID_LAYER] = standing
+		wear_id_overlay = overlays_standing[ID_LAYER]
 		if(OFFSET_ID in dna.species.offset_features)
 			id_overlay.pixel_x += dna.species.offset_features[OFFSET_ID][1]
 			id_overlay.pixel_y += dna.species.offset_features[OFFSET_ID][2]
-		overlays_standing[ID_LAYER] = id_overlay
-
+			overlays_standing[ID_LAYER] = id_overlay
 	apply_overlay(ID_LAYER)
 
 
@@ -279,7 +285,7 @@ There are several things that need to be remembered:
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = ears.sprite_sheets[dna.species.name])
 		else
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
-		
+
 		overlays_standing[EARS_LAYER] = standing
 		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
 		if(OFFSET_EARS in dna.species.offset_features)
@@ -358,7 +364,7 @@ There are several things that need to be remembered:
 		else
 			standing = head.build_worn_icon(state = head.icon_state, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/head.dmi')
 		remove_overlay(HEAD_LAYER)
-		overlays_standing[HEAD_LAYER] = standing	
+		overlays_standing[HEAD_LAYER] = standing
 		var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
 		if(OFFSET_HEAD in dna.species.offset_features)
 			head_overlay.pixel_x += dna.species.offset_features[OFFSET_HEAD][1]
@@ -464,12 +470,40 @@ There are several things that need to be remembered:
 	var/mutable_appearance/mask_overlay = overlays_standing[FACEMASK_LAYER]
 	if(mask_overlay)
 		remove_overlay(FACEMASK_LAYER)
+		var/image/standing
+		if(wear_neck.icon_override)
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = wear_neck.icon_override)
+		else if(wear_neck.sprite_sheets && wear_neck.sprite_sheets[dna.species.name])
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = wear_neck.sprite_sheets[dna.species.name])
+		else
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
+		overlays_standing[FACEMASK_LAYER] = standing
+		var/mutable_appearance/wear_neck_overlay = overlays_standing[FACEMASK_LAYER]
 		if(OFFSET_FACEMASK in dna.species.offset_features)
 			mask_overlay.pixel_x += dna.species.offset_features[OFFSET_FACEMASK][1]
 			mask_overlay.pixel_y += dna.species.offset_features[OFFSET_FACEMASK][2]
 			overlays_standing[FACEMASK_LAYER] = mask_overlay
 		apply_overlay(FACEMASK_LAYER)
 	update_mutant_bodyparts() //e.g. upgate needed because mask now hides lizard snout
+
+/mob/living/carbon/human/update_inv_neck()
+	..()
+	if(wear_neck)
+		remove_overlay(NECK_LAYER)
+		var/image/standing
+		if(wear_neck.icon_override)
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = wear_neck.icon_override)
+		else if(wear_neck.sprite_sheets && wear_neck.sprite_sheets[dna.species.name])
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = wear_neck.sprite_sheets[dna.species.name])
+		else
+			standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
+		overlays_standing[NECK_LAYER] = standing
+		var/mutable_appearance/wear_neck_overlay = overlays_standing[NECK_LAYER]
+		if(OFFSET_NECK in dna.species.offset_features)
+			wear_neck_overlay.pixel_x += dna.species.offset_features[OFFSET_NECK][1]
+			wear_neck_overlay.pixel_y += dna.species.offset_features[OFFSET_NECK][2]
+			overlays_standing[NECK_LAYER] = wear_neck_overlay
+		apply_overlay(NECK_LAYER)
 
 /mob/living/carbon/human/update_inv_back()
 	..()
