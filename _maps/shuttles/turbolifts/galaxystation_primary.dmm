@@ -1,0 +1,64 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/turf/open/indestructible/turbolift,
+/area/space)
+"h" = (
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/turf/open/indestructible/turbolift,
+/area/space)
+"A" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/turf/open/indestructible/turbolift,
+/area/space)
+"B" = (
+/obj/machinery/computer/turbolift{
+	shuttle_id = "turbolift_primary"
+	},
+/turf/open/indestructible/turbolift,
+/area/space)
+"F" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/turf/open/indestructible/turbolift,
+/area/space)
+"S" = (
+/turf/open/indestructible/turbolift,
+/area/space)
+
+(1,1,1) = {"
+A
+F
+F
+"}
+(2,1,1) = {"
+B
+S
+S
+"}
+(3,1,1) = {"
+d
+h
+h
+"}
