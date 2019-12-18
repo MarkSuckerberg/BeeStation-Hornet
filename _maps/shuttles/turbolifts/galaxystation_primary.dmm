@@ -8,14 +8,14 @@
 	dir = 4
 	},
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 "h" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 "A" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -27,13 +27,13 @@
 	dir = 4
 	},
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 "B" = (
 /obj/machinery/computer/turbolift{
 	shuttle_id = "turbolift_primary"
 	},
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 "F" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
@@ -42,10 +42,10 @@
 	dir = 8
 	},
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 "S" = (
 /turf/open/indestructible/turbolift,
-/area/space)
+/area/shuttle/turbolift/primary)
 
 (1,1,1) = {"
 A
