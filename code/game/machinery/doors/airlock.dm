@@ -988,6 +988,9 @@
 				welded = !welded
 				user.visible_message("[user.name] has [welded? "welded shut":"unwelded"] [src].", \
 									"<span class='notice'>You [welded ? "weld the airlock shut":"unweld the airlock"].</span>")
+				if(welded)
+					message_admins("[ADMIN_LOOKUPFLW(user)] has welded \the [src] shut at [ADMIN_VERBOSEJMP(src)]")
+					log_attack("[ADMIN_LOOKUPFLW(user)] welded \the [src] shut at [src.loc]")
 				update_icon()
 		else
 			if(obj_integrity < max_integrity)
