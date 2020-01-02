@@ -22,22 +22,12 @@
 		return 0
 	return ..()
 
-/mob/living/carbon/get_spans()
-	. = ..()
+/mob/living/carbon/could_speak_language(datum/language/language)
 	var/obj/item/organ/tongue/T = getorganslot(ORGAN_SLOT_TONGUE)
 	if(T)
-		. |= T.get_spans()
-
-	var/obj/item/I = get_active_held_item()
-	if(I)
-		. |= I.get_held_item_speechspans(src)
-
-/mob/living/carbon/could_speak_in_language(datum/language/dt)
-	var/obj/item/organ/tongue/T = getorganslot(ORGAN_SLOT_TONGUE)
-	if(T)
-		. = T.could_speak_in_language(dt)
+		return T.could_speak_language(language)
 	else
-		. = initial(dt.flags) & TONGUELESS_SPEECH
+		return initial(language.flags) & TONGUELESS_SPEECH
 
 /mob/living/carbon/hear_intercept(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
 	var/datum/status_effect/bugged/B = has_status_effect(STATUS_EFFECT_BUGGED)

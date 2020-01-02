@@ -19,6 +19,7 @@
 		/datum/language/aphasia,
 		/datum/language/piratespeak,
 		/datum/language/rlyehian,
+		/datum/language/moffic
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
@@ -41,8 +42,8 @@
 	if(say_mod && M.dna && M.dna.species)
 		M.dna.species.say_mod = initial(M.dna.species.say_mod)
 
-/obj/item/organ/tongue/could_speak_in_language(datum/language/dt)
-	. = is_type_in_typecache(dt, languages_possible)
+/obj/item/organ/tongue/could_speak_language(language)
+	return is_type_in_typecache(language, languages_possible)
 
 /obj/item/organ/tongue/lizard
 	name = "forked tongue"
@@ -222,8 +223,8 @@
 	owner.emote("scream")
 	to_chat(owner, "<span class='warning'>Alert: Vocal cords are malfunctioning.</span>")
 
-/obj/item/organ/tongue/robot/can_speak_in_language(datum/language/dt)
-	. = TRUE // THE MAGIC OF ELECTRONICS
+/obj/item/organ/tongue/robot/can_speak_language(language)
+	return TRUE // THE MAGIC OF ELECTRONICS
 
 /obj/item/organ/tongue/robot/get_spans()
 	return ..() | SPAN_ROBOT
