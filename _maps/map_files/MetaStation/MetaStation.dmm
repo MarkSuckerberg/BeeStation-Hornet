@@ -57708,10 +57708,6 @@
 /obj/item/stack/sheet/mineral/plasma,
 /obj/structure/table/glass,
 /obj/item/reagent_containers/glass/bottle/epinephrine,
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = 7;
-	pixel_y = 4
-	},
 /obj/item/storage/pill_bottle/epinephrine{
 	pixel_x = 3
 	},
